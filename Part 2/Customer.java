@@ -61,6 +61,15 @@ public abstract class Customer{
     return "Client: "+this.getFirstName()+" "+this.getLastName()+" | Customer Number: "+this.getCustomerNumber()+" | Age: "+this.getAge();
   }
 
+  public boolean equals(Customer other){
+    if((this.getFirstName() == other.getFirstName()) && (this.getLastName() == other.getLastName()) && (this.getAge() == other.getAge()) && (this.getCustomerNumber() == other.getCustomerNumber()){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   public abstract double getSavingsInterest();
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
