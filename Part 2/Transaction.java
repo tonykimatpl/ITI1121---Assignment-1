@@ -23,7 +23,6 @@ public class Transaction{
     this.description = desc;
   }
 
-
   public String processTransaction(){
     String transactionInfo;
     if(this.type) == 0){
