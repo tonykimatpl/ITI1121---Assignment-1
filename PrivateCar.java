@@ -2,10 +2,11 @@ class PrivateCar extends Transportation
 {
 	private int distance;
 	public final double RATE = 0.427;
-	
-	public PrivateCar()
+
+	public PrivateCar(int dist,String description, String destination)
 	{
-		this.distance;
+		super(description,destination);
+		this.distance = dist;
 	}
 	public int getDistance()
 	{
