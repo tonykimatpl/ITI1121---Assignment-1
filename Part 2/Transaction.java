@@ -26,13 +26,13 @@ public class Transaction{
   public String processTransaction(){
     String transactionInfo;
     if(this.type) == 0){
-      transactionInfo = "Deposit of amount: "+this.amount;
+      transactionInfo = "Deposit of amount: " +this.amount + " | Fees incurred: "+this.fees+" | Date: "+this.date+" | Description: "+this.description;
     }
     else if(this.type == 1){
-      transactionInfo = "Withdrawal of amount: "+this.amount;
+      transactionInfo = "Withdrawal of amount: " +this.amount + " | Fees incurred: "+this.fees+" | Date: "+this.date+" | Description: "+this.description;
     }
     else if(this.type == 2){
-      transactionInfo = "Added Interest of amount: "+this.amount;
+      transactionInfo = "Added Interest of amount: " +this.amount + " | Fees incurred: "+this.fees+" | Date: "+this.date+" | Description: "+this.description;
     }
     return transactionInfo;
   }
