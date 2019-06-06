@@ -3,9 +3,9 @@ public class Senior extends Customer{
 	private double checkingsInt;
 	private int checkingsCharge;
 	private int overPenalty;
-	private boolean vip;
-	
-	public void Senior(boolean VIP){
+	private boolean vip=false;
+
+	public Senior(boolean vip){
 		if(VIP == false){
 			private static final double SAVINGS_INTEREST = 0.08;
 			private static final double CHECK_INTEREST = 0.04;
@@ -22,6 +22,9 @@ public class Senior extends Customer{
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
 		this.overPenalty = OVERDRAFT_PENALTY;
-		this.vip = VIP;
+		this.vip = vip;
 	}
+  public void isVIP(){
+    vip = true;
+  }
 }
