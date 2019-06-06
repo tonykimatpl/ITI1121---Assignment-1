@@ -34,6 +34,9 @@ public class Senior extends Customer{
 	public double getCheckCharge(){
 		return this.checkingsCharge;
 	}
+	public double getOverPenalty(){
+		return this.overPenalty;
+	}
 	public boolean getVip(){
 		return this.VIP;
 	}

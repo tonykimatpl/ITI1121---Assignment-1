@@ -24,4 +24,7 @@ public class Adult extends Customer{
 	public double getCheckCharge(){
 		return this.checkingsCharge;
 	}
+	public double getOverPenalty(){
+		return this.overPenalty;
+	}
 }
