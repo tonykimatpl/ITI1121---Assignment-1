@@ -4,13 +4,13 @@ public class Transaction{
 
   public String processTransaction(byte operation, double amt){
     String transactionInfo;
-    if(this.type == 0){
+    if(operation == 0){
       transactionInfo = "Deposit of amount: "+amt;
     }
-    else if(this.type == 1){
+    else if(operation == 1){
       transactionInfo = "Withdrawal of amount: "+amt;
     }
-    else if(this.type == 2){
+    else if(operation == 2){
       transactionInfo = "Added Interest of amount: "+amt;
     }
     return transactionInfo;
