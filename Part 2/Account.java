@@ -33,6 +33,9 @@ public abstract class Account{
   public double getBalance(){
     return this.balance;
   }
+	public void setBalance(double newBal){
+		this.balance = newBal;
+	}
   public Customer getCustomer(){
     return this.customer;
   }
