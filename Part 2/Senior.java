@@ -18,6 +18,7 @@ public class Senior extends Customer{
 			private static final int CHECK_CHARGE = 0;
 			private static final int OVERDRAFT_PENALTY = 5;
 		}
+		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
