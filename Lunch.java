@@ -1,7 +1,8 @@
-class Lunch extends Meal
+public class Lunch extends Meal
 {
-	public Lunch()
+	public final double ALLOWANCE = 11.30;
+	public Lunch(String description, int numberOfMeals)
 	{
-		public double ALLOWANCE = 11.30;
+		super(description, numberOfMeals);
 	}
 }
