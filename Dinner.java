@@ -1,7 +1,11 @@
-class Dinner extends Meal
-{	
-	public Dinner()
+public class Dinner extends Meal
+{
+	public final double ALLOWANCE = 31.80;
+	public Dinner(String description, int numberOfMeals)
 	{
-		public double Allowance = 31.80;
+		super(description, numberOfMeals);
+	}
+	public double getAmount(){
+		return numberOfMeals*ALLOWANCE;
 	}
 }

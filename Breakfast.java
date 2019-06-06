@@ -5,4 +5,7 @@ public class Breakfast extends Meal
 	public Breakfast(String description, int numberOfMeals){
 		super(description,numberOfMeals);
 	}
+	public double getAmount(){
+		return numberOfMeals*ALLOWANCE;
+	}
 }

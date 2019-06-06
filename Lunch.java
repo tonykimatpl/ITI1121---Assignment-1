@@ -5,4 +5,7 @@ public class Lunch extends Meal
 	{
 		super(description, numberOfMeals);
 	}
+	public double getAmount(){
+		return numberOfMeals*ALLOWANCE;
+	}
 }
