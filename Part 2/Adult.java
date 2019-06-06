@@ -1,7 +1,7 @@
 public class Adult extends Customer{
 	private static final double SAVINGS_doubleEREST = 0.03;
 	private static final double CHECK_doubleEREST = 0.01;
-	private static final double CHECK_CHARGE = 3;
+	private static final double CHECK_CHARGE = 0.03;
 	private static final double OVERDRAFT_PENALTY = 25;
 	private double savingsdouble;
 	private double checkingsdouble;

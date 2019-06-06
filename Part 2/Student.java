@@ -1,7 +1,7 @@
 public class Student extends Customer{
 	private static final double SAVINGS_INTEREST = 0.07;
 	private static final double CHECK_INTEREST = 0.03;
-	private static final double CHECK_CHARGE = 2;
+	private static final double CHECK_CHARGE = 0.02;
 	private static final double OVERDRAFT_PENALTY = 0;
 	private double savingsInt;
 	private double checkingsInt;
