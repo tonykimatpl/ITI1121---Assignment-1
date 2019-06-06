@@ -1,10 +1,11 @@
-class Meal extends Expense
+public abstract class Meal extends Expense
 {
 	private int numberOfMeals;
-	
-	public Meal()
+
+	public Meal(String description, int numberMeal)
 	{
-		this.numberOfMeals;
+		super(description);
+		this.numberOfMeals = numberMeal;
 	}
 	public int getNumberOfMeals()
 	{
