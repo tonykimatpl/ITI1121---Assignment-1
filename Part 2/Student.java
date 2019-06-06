@@ -8,7 +8,7 @@ public class Student extends Customer{
 	private int checkingsCharge;
 	private int overPenalty;
 	
-	public void Student(){
+	public Student(){
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;

@@ -8,7 +8,7 @@ public class Adult extends Customer{
 	private int checkingsCharge;
 	private int overPenalty;
 	
-	public void Adult(){
+	public Adult(){
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
