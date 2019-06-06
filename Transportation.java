@@ -11,5 +11,5 @@ public abstract class Transportation extends Expense
 	{
 		return destination;
 	}
-	abstract public double getAmount();
+	public abstract double getAmount();
 }
