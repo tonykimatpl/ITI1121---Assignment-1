@@ -7,7 +7,7 @@ public abstract class Transportation extends Expense
 		super(description);
 		this.destination = destination;
 	}
-	public getDestination()
+	public String getDestination()
 	{
 		return destination;
 	}
