@@ -24,4 +24,13 @@ public class Senior extends Customer{
 		this.overPenalty = OVERDRAFT_PENALTY;
 		this.VIP = VIP;
 	}
+	public double getSavingsInterest(){
+		return this.savingsInt;
+	}
+	public double getCheckInterest(){
+		return this.checkingsInt;
+	}
+	public double getCheckCharge(){
+		return this.checkingsCharge;
+	}
 }
