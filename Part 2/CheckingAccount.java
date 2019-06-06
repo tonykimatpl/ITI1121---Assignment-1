@@ -10,7 +10,8 @@ public class CheckingAccount extends Account{
     this.index++;
   }
   public void withdraw(double amount){
-    if(this.index == this.transaction.length){
+    amount+= this.getCheckCharge();
+	if(this.index == this.transaction.length){
       this.reallocate();
     }
 
@@ -58,11 +59,24 @@ public class CheckingAccount extends Account{
         else if((this.getBalance() - amount) < -500){
           System.out.println("This transaction could not be processed as you have reached your overdraft limit. Consider making a payment.");
       }
-        else if(this.getBalance() - amount)
+        else if((this.getBalance() - amount) > -100){
+		  double currentBal = this.getBalance() - amount;
+          this.setBalance(currentBal);
+          Transaction newTrans = new Transaction(1,amount,5,"Withdrawal");
+          this.transactions[this.index] = newTrans.processTransaction();
+          this.index++;
+		}
     }
   }
   public void addInterest(){
-    double newbal = this.getBalance() * (this.getCheckInterest() + 1);
-    this.setBalance(newbal);
+    if(this.index == this.transaction.length){
+		this.reallocate();
+	}
+	double interestAccrued = this.getBalance() * (this.getCheckInterest() + 1);
+	double newbal = this.getBalance() + interestAccrued;
+	this.setBalance(newbal);
+	Transaction newTrans = new Transaction(2,interestAccrued,0,"Interest Accrued");
+	this.transactions[this.index] = newTrans.processTransaction();
+	this.index++;
   }
 }
