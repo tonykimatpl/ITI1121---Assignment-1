@@ -1,12 +1,12 @@
 public class Student extends Customer{
 	private static final double SAVINGS_INTEREST = 0.07;
 	private static final double CHECK_INTEREST = 0.03;
-	private static final int CHECK_CHARGE = 2;
-	private static final int OVERDRAFT_PENALTY = 0;
+	private static final double CHECK_CHARGE = 2;
+	private static final double OVERDRAFT_PENALTY = 0;
 	private double savingsInt;
 	private double checkingsInt;
-	private int checkingsCharge;
-	private int overPenalty;
+	private double checkingsCharge;
+	private double overPenalty;
 	
 	public Student(){
 		super(fName, lName, inage);

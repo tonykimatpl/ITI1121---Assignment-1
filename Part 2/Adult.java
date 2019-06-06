@@ -1,25 +1,25 @@
 public class Adult extends Customer{
-	private static final double SAVINGS_INTEREST = 0.03;
-	private static final double CHECK_INTEREST = 0.01;
-	private static final int CHECK_CHARGE = 3;
-	private static final int OVERDRAFT_PENALTY = 25;
-	private double savingsInt;
-	private double checkingsInt;
-	private int checkingsCharge;
-	private int overPenalty;
+	private static final double SAVINGS_doubleEREST = 0.03;
+	private static final double CHECK_doubleEREST = 0.01;
+	private static final double CHECK_CHARGE = 3;
+	private static final double OVERDRAFT_PENALTY = 25;
+	private double savingsdouble;
+	private double checkingsdouble;
+	private double checkingsCharge;
+	private double overPenalty;
 	
 	public Adult(){
 		super(fName, lName, inage);
-		this.savingsInt = SAVINGS_INTEREST;
-		this.checkingsInt = CHECK_INTEREST;
+		this.savingsdouble = SAVINGS_doubleEREST;
+		this.checkingsdouble = CHECK_doubleEREST;
 		this.checkingsCharge = CHECK_CHARGE;
 		this.overPenalty = OVERDRAFT_PENALTY;
 	}
-	public double getSavingsInterest(){
-		return this.savingsInt;
+	public double getSavingsdoubleerest(){
+		return this.savingsdouble;
 	}
-	public double getCheckInterest(){
-		return this.checkingsInt;
+	public double getCheckdoubleerest(){
+		return this.checkingsdouble;
 	}
 	public double getCheckCharge(){
 		return this.checkingsCharge;
