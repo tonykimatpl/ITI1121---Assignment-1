@@ -58,8 +58,7 @@ public abstract class Customer{
   }
 
   public String toString(){
-    String canon;
-    canon = "Client: "+this.getFirstName()+" "+this.getLastName()+" | Customer Number: "+this.getCustomerNumber()+" | Age: "+this.getAge();
+    return "Client: "+this.getFirstName()+" "+this.getLastName()+" | Customer Number: "+this.getCustomerNumber()+" | Age: "+this.getAge();
   }
 
   public abstract double getSavingsInterest();
