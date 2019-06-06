@@ -73,5 +73,5 @@ public abstract class Customer{
   public abstract double getSavingsInterest();
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
-
+  public abstract double getOverPenalty();
 }
