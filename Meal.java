@@ -11,4 +11,5 @@ public abstract class Meal extends Expense
 	{
 		return numberOfMeals;
 	}
+	public abstract double getAmount();
 }
