@@ -9,6 +9,7 @@ public class Student extends Customer{
 	private int overPenalty;
 	
 	public Student(){
+		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;

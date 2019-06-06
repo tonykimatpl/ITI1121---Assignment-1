@@ -9,6 +9,7 @@ public class Adult extends Customer{
 	private int overPenalty;
 	
 	public Adult(){
+		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
