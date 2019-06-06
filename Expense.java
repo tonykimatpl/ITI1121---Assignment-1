@@ -1,10 +1,10 @@
-public class Expense
+public abstract class Expense
 {
 	private String description;
 
-	public Expense(String desc)
+	public Expense(String description)
 	{
-		this.description = desc;
+		this.description = description;
 	}
 	public String getDescription()
 	{
