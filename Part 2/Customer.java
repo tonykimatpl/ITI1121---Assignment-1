@@ -3,7 +3,7 @@ public abstract class Customer{
   private String lastName;
   private int age;
   private int customerNumber;
-  private int lastCustomerNumber = 9999;
+  private static int lastCustomerNumber = 9999;
 
   public Customer(String fName, String lName, int inage){
     this.firstName = fName;
