@@ -1,7 +1,6 @@
 public class Expense
 {
 	private String description;
-	private final String DEFAULT_DESCRIPTION = "New Expense";
 
 	public Expense(String desc)
 	{
