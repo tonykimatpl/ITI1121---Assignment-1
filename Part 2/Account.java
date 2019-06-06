@@ -5,6 +5,7 @@ public abstract class Account{
   private Transaction[] transactions;
 	private Transaction newTransArray;
   private static final int INITSIZE = 25;
+	private int index = 0;
 
 
 	public Account(Customer person, double bal){
@@ -12,24 +13,24 @@ public abstract class Account{
     this.customer = person;
 		this.accountNumber = lastAccountNumber;
 		lastAccountNumber ++;
+		this.index = 0;
     Transaction[] transactions = new Transaction[INITSIZE];
 	}
 
 	public void reallocate(){
-    for(int i = 0; i < this.transactions.length;i++){
-      if(this.transactions[i] == null){
-        break;
-      }
-      else{
+    if((index+1) == this.transactions.length){
         var = this.transactions.length;
         Transaction[] newTransArray = new Transactions[var*2];
         for(int i=0; i < var;i++){
           newTransArray[i] = this.transactions[i];
         }
-        this.transactions = newTransArray;
+				this.transactions = newTransArray;
       }
+		else{
+			break
+		}
     }
-	}
+
   public double getBalance(){
     return this.balance;
   }
