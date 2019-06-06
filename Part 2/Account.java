@@ -18,7 +18,7 @@ public abstract class Account{
 	}
 
 	public void reallocate(){
-    if((index+1) == this.transactions.length){
+    if(this.index == this.transactions.length){
         var = this.transactions.length;
         Transaction[] newTransArray = new Transactions[var*2];
         for(int i=0; i < var;i++){
