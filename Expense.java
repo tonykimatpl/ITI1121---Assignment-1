@@ -1,19 +1,15 @@
 public class Expense
 {
 	private String description;
-	private double amount;
-	
-	public Expense()
+	private final String DEFAULT_DESCRIPTION = "New Expense";
+
+	public Expense(String desc)
 	{
-		this.description = description;
-		this.amount = amount;
+		this.description = desc;
 	}
-	public getDescription()
+	public String getDescription()
 	{
 		return description;
 	}
-	public double getAmount()
-	{
-		return amount;
-	}
+	public abstract double getAmount();
 }
