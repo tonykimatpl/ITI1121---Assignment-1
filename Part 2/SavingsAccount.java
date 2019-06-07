@@ -21,7 +21,7 @@ public class SavingsAccount extends Account{
     }
     else if(amount > this.getBalance()){
       if(this.getCustomer() instanceof Student){
-        System.out.println("Amount to be withdrawn is greater than your balance. Your student account cannot be overdrafted. Please upgrade to an adult or senior account for overdraft privileges")
+        System.out.println("Amount to be withdrawn is greater than your balance. Your student account cannot be overdrafted. Please upgrade to an adult or senior account for overdraft privileges");
       }
       else if(this.getCustomer() instanceof Adult){
         if((this.getBalance() - amount) >= -500){
