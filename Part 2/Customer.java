@@ -62,7 +62,7 @@ public abstract class Customer{
   }
 
   public boolean equals(Customer other){
-    if((this.getFirstName() == other.getFirstName()) && (this.getLastName() == other.getLastName()) && (this.getAge() == other.getAge()) && (this.getCustomerNumber() == other.getCustomerNumber()){
+    if((this.getFirstName() == other.getFirstName()) && (this.getLastName() == other.getLastName()) && (this.getAge() == other.getAge()) && (this.getCustomerNumber() == other.getCustomerNumber())){
       return true;
     }
     else{

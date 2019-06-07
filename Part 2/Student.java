@@ -8,7 +8,7 @@ public class Student extends Customer{
 	private double checkingsCharge;
 	private double overPenalty;
 	
-	public Student(){
+	public Student(String fName, String lName,int inage){
 		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
