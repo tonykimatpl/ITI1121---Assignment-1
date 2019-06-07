@@ -1,4 +1,4 @@
-public class CheckingAccount extends Account{
+public abstract class CheckingAccount extends Account{
 	public void deposit(double amount){
 	byte type;
     if(this.getIndex() == this.getTransactions().length){
@@ -25,7 +25,7 @@ public class CheckingAccount extends Account{
     }
     else if(amount > this.getBalance()){
       if(this.getCustomer() instanceof Student){
-        System.out.println("Amount to be withdrawn is greater than your balance. Your student account cannot be overdrafted. Please upgrade to an adult or senior account for overdraft privileges");    
+        System.out.println("Amount to be withdrawn is greater than your balance. Your student account cannot be overdrafted. Please upgrade to an adult or senior account for overdraft privileges");
       }
       else if(this.getCustomer() instanceof Adult){
         if((this.getBalance() - amount) >= -500){
@@ -40,7 +40,7 @@ public class CheckingAccount extends Account{
           System.out.println("This transaction could not be processed as you have reached your overdraft limit. Consider making a payment.");
         }
       }
-      else if(this.getCustomer() instanceof Senior && this.getOverPenalty == 10){
+      else if(this.getCustomer() instanceof Senior && this.getOverPenalty() == 10){
         if((this.getBalance() - amount) >= -500){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
@@ -88,4 +88,8 @@ public class CheckingAccount extends Account{
 	this.getTransactions()[this.getIndex()] = newTrans.processTransaction();
 	this.setIndex(this.getIndex()+1);
   }
+	public abstract double getSavingsInterest();
+  public abstract double getCheckInterest();
+  public abstract double getCheckCharge();
+  public abstract double getOverPenalty();
 }

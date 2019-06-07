@@ -1,4 +1,4 @@
-public class Account{
+public abstract class Account{
 	private static int lastAccountNumber = 9999;
 	private int accountNumber;
   private Customer customer;
@@ -67,4 +67,8 @@ public class Account{
 	public void addTransaction(String newTranAr){
 		this.transactions[this.getIndex()] = newTranAr;
 	}
+	public abstract double getSavingsInterest();
+  public abstract double getCheckInterest();
+  public abstract double getCheckCharge();
+  public abstract double getOverPenalty();
 }

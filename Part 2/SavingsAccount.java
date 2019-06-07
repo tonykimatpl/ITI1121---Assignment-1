@@ -1,4 +1,4 @@
-public class SavingsAccount extends Account{
+public abstract class SavingsAccount extends Account{
   public void deposit(double amount){
     if(this.getIndex() == this.getTransactions().length){
       this.reallocate();
@@ -85,4 +85,8 @@ public class SavingsAccount extends Account{
     this.addTransaction(transInput);
     this.setIndex(this.getIndex()+1);
   }
+  public abstract double getSavingsInterest();
+  public abstract double getCheckInterest();
+  public abstract double getCheckCharge();
+  public abstract double getOverPenalty();
 }
