@@ -11,7 +11,6 @@ public abstract class Account{
 	public Account(){
 		this.accountNumber = lastAccountNumber;
 		lastAccountNumber ++;
-		this.customer = new Customer();
 		this.balance = 0;
 		this.index = 0;
 		Transaction[] transactions = new Transaction[INITSIZE];
@@ -27,7 +26,7 @@ public abstract class Account{
 	}
 
 	public void reallocate(){
-    if(this.index == this.transactions.length){
+    if(this.getIndex() == this.transactions.length){
         int var = this.transactions.length;
         Transaction[] newTransArray = new Transaction[var*2];
         for(int i=0; i < var;i++){
@@ -61,5 +60,11 @@ public abstract class Account{
 	}
 	public void setIndex(int newIndex){
 		this.index = newIndex;
+	}
+	public Transaction[] getTransactions(){
+		return this.transactions;
+	}
+	public void addTransaction(Transaction newTranAr){
+		this.transactions[this.getIndex()] = newTranAr;
 	}
 }
