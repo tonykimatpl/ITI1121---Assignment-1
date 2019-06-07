@@ -7,16 +7,16 @@ public class Senior extends Customer{
 
 	public Senior(boolean VIP){
 		if(VIP == false){
-			private static final double SAVINGS_INTEREST = 0.08;
-			private static final double CHECK_INTEREST = 0.04;
-			private static final double CHECK_CHARGE = 0.01;
-			private static final double OVERDRAFT_PENALTY = 10;
+			final double SAVINGS_INTEREST = 0.08;
+			final double CHECK_INTEREST = 0.04;
+			final double CHECK_CHARGE = 0.01;
+			final double OVERDRAFT_PENALTY = 10;
 		}
 		else{
-			private static final double SAVINGS_INTEREST = 0.1;
-			private static final double CHECK_INTEREST = 0.04;
-			private static final double CHECK_CHARGE = 0;
-			private static final double OVERDRAFT_PENALTY = 5;
+			final double SAVINGS_INTEREST = 0.1;
+			final double CHECK_INTEREST = 0.04;
+			final double CHECK_CHARGE = 0;
+			final double OVERDRAFT_PENALTY = 5;
 		}
 		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
