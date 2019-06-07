@@ -27,7 +27,7 @@ public abstract class Account{
 				this.transactions = newTransArray;
       }
 		else{
-			break
+			break;
 		}
     }
 
