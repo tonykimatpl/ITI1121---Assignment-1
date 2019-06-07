@@ -3,7 +3,7 @@ public abstract class Account{
 	private int accountNumber;
   private Customer customer;
 	private double balance;
-  private Transaction[] transactions;
+  private String[] transactions;
 	private Transaction newTransArray;
   private static final int INITSIZE = 25;
 	private int index = 0;
@@ -13,7 +13,7 @@ public abstract class Account{
 		lastAccountNumber ++;
 		this.balance = 0;
 		this.index = 0;
-		Transaction[] transactions = new Transaction[INITSIZE];
+		String[] transactions = new String[INITSIZE];
 	}
 
 	public Account(Customer person, double bal){
@@ -22,13 +22,13 @@ public abstract class Account{
 		this.accountNumber = lastAccountNumber;
 		lastAccountNumber ++;
 		this.index = 0;
-    Transaction[] transactions = new Transaction[INITSIZE];
+    String[] transactions = new String[INITSIZE];
 	}
 
 	public void reallocate(){
     if(this.getIndex() == this.transactions.length){
         int var = this.transactions.length;
-        Transaction[] newTransArray = new Transaction[var*2];
+        String[] newTransArray = new String[var*2];
         for(int i=0; i < var;i++){
           newTransArray[i] = this.transactions[i];
         }
@@ -61,10 +61,10 @@ public abstract class Account{
 	public void setIndex(int newIndex){
 		this.index = newIndex;
 	}
-	public Transaction[] getTransactions(){
+	public String[] getTransactions(){
 		return this.transactions;
 	}
-	public void addTransaction(Transaction newTranAr){
+	public void addTransaction(String newTranAr){
 		this.transactions[this.getIndex()] = newTranAr;
 	}
 }
