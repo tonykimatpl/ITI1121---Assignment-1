@@ -1,6 +1,6 @@
 public class Run{
   public static void main(String[] args){
-    ExpenseTracker epro = newExpenseTracker(10);
+    ExpenseTracker epro = new ExpenseTracker(10);
     epro.add(new PrivateCar("ACFAS 2004", "Montreal(QC)",430));
     epro.add(new Airfare("IWBRA 2005", "Atlanta(GA)",204.0));
     epro.add(new Breakfast("IWBRA 2005",2));
