@@ -2,7 +2,7 @@ class Airfare extends Transportation
 {
 	private double amount;
 
-	public Airfare(double amount,String description,String destination)
+	public Airfare(String description,String destination,double amount)
 	{
 		super(description,destination);
 		this.amount = amount;
