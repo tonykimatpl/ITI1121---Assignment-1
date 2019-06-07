@@ -1,5 +1,6 @@
 public abstract class Account{
-	private static lastAccountNumber = 9999;
+	private static int lastAccountNumber = 9999;
+	private int accountNumber;
   private Customer customer;
 	private double balance;
   private Transaction[] transactions;
@@ -19,15 +20,15 @@ public abstract class Account{
 
 	public void reallocate(){
     if(this.index == this.transactions.length){
-        var = this.transactions.length;
-        Transaction[] newTransArray = new Transactions[var*2];
+        int var = this.transactions.length;
+        Transaction[] newTransArray = new Transaction[var*2];
         for(int i=0; i < var;i++){
           newTransArray[i] = this.transactions[i];
         }
 				this.transactions = newTransArray;
       }
 		else{
-			break;
+			;
 		}
     }
 
@@ -44,9 +45,8 @@ public abstract class Account{
     this.customer = other;
   }
   public String toString(){
-    String a = "Account balance is: "+ this.balance+". Account Number is: "+ this.accountNumber+". ";
-    String b = this.getCustomer();
-    return a,b;
+    String a = "Account balance is: "+ this.balance+". Account Number is: "+ this.accountNumber+". "+"Customer Number is: "+this.getCustomer()+".";
+    return a;
 
   }
 }
