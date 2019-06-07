@@ -5,13 +5,13 @@ public class SavingsAccount extends Account{
     }
     double currentBal = this.getBalance() + amount;
     this.setBalance(currentBal);
-    Transaction newTrans = new Transaction(0, amount, 0, "Deposit");
+    Transaction newTrans = new Transaction((byte)0, amount, 0, "Deposit");
     String transInput = newTrans.processTransaction();
     this.addTransaction(transInput);
     this.setIndex(this.getIndex()+1);
   }
   public void withdraw(double amount){
-    if(this.getIndex() == this.transactions.length){
+    if(this.getIndex() == this.getTransactions().length){
       this.reallocate();
     }
 
@@ -28,7 +28,7 @@ public class SavingsAccount extends Account{
         if((this.getBalance() - amount) >= -500){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
-          Transaction newTrans = new Transaction(1,amount,25,"Withdrawal");
+          Transaction newTrans = new Transaction((byte)1,amount,25,"Withdrawal");
           String transInput = newTrans.processTransaction();
           this.addTransaction(transInput);
           this.setIndex(this.getIndex()+1);
@@ -41,7 +41,7 @@ public class SavingsAccount extends Account{
         if((this.getBalance() - amount) >= -500){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
-          Transaction newTrans = new Transaction(1,amount,10,"Withdrawal");
+          Transaction newTrans = new Transaction((byte)1,amount,10,"Withdrawal");
           String transInput = newTrans.processTransaction();
           this.addTransaction(transInput);
           this.setIndex(this.getIndex()+1);
@@ -54,7 +54,7 @@ public class SavingsAccount extends Account{
         if((this.getBalance() - amount) < -100 && (this.getBalance() - amount) > -500){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
-          Transaction newTrans = new Transaction(1,amount,5,"Withdrawal");
+          Transaction newTrans = new Transaction((byte)1,amount,5,"Withdrawal");
           String transInput = newTrans.processTransaction();
           this.addTransaction(transInput);
           this.setIndex(this.getIndex()+1);
@@ -65,7 +65,7 @@ public class SavingsAccount extends Account{
         else if((this.getBalance() - amount) > -100){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
-          Transaction newTrans = new Transaction(1,amount,0,"Withdrawal");
+          Transaction newTrans = new Transaction((byte)1,amount,0,"Withdrawal");
           String transInput = newTrans.processTransaction();
           this.addTransaction(transInput);
           this.setIndex(this.getIndex()+1);
@@ -80,7 +80,7 @@ public class SavingsAccount extends Account{
     double interestAccrued = this.getBalance() * (this.getSavingsInterest());
     double newbal = this.getBalance() + interestAccrued;
     this.setBalance(newbal);
-    Transaction newTrans = new Transaction(2,interestAccrued,0,"Interest Accrued");
+    Transaction newTrans = new Transaction((byte)2,interestAccrued,0,"Interest Accrued");
     String transInput = newTrans.processTransaction();
     this.addTransaction(transInput);
     this.setIndex(this.getIndex()+1);
