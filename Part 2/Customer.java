@@ -1,4 +1,4 @@
-public abstract class Customer{
+public abstract class Customer extends Account{
   private String firstName;
   private String lastName;
   private int age;
