@@ -1,4 +1,4 @@
-public abstract class Account{
+public class Account extends Customer{
 	private static int lastAccountNumber = 9999;
 	private int accountNumber;
   private Customer customer;
