@@ -89,4 +89,5 @@ public abstract class SavingsAccount extends Account{
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
   public abstract double getOverPenalty();
+  public abstract int getType();
 }
