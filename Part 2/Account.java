@@ -71,4 +71,5 @@ public abstract class Account{
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
   public abstract double getOverPenalty();
+  public abstract int getType();
 }
