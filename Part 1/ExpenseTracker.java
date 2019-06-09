@@ -5,13 +5,13 @@ public class ExpenseTracker {
 		expenses = new Expense[capacity];
 		size = 0;
 	}
-  public boolean add(Expense e){
+  public void add(Expense e){
 		expenses[size] = e;
-		return true;
+		size++;
   }
   public double getTotal(){
     double total = 0;
-    for(int i=0; i <= size; i++){
+    for(int i=0; i < size; i++){
       total += expenses[i].getAmount();
     }
     return total;
