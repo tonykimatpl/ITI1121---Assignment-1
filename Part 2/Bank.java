@@ -144,7 +144,7 @@ public abstract class Bank extends Account {
      * @return String Account information as a String object
      */
     public String getAccount(String accountNumber){
-    	accvar = accountFinder.get(accountNumber);
+    	String accvar = accountFinder.get(accountNumber);
     	return accvar;
     }
 
