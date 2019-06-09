@@ -1,4 +1,4 @@
-public class Senior extends Customer{
+public class Senior extends Account{
 	private double savingsInt;
 	private double checkingsInt;
 	private double checkingsCharge;

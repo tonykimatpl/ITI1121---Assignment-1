@@ -5,7 +5,7 @@
  */
 import java.util.HashMap;
 import java.util.Map;
-public abstract class Bank extends Account {
+public abstract class Bank{
     private Account[] accounts;
     private int size = 0;
     private int capacity;
@@ -17,7 +17,7 @@ public abstract class Bank extends Account {
     private static final int ADULT = 1;
     private static final int STUDENT = 2;
     private static final int INIT_CAPACITY = 100;
-
+    private Object hello;
 
 
 
@@ -45,60 +45,25 @@ public abstract class Bank extends Account {
     if(size == (capacity - 1)){
     	this.allocate();
     }
-    if(customerType == SENIOR){
-      	if(typeAccount==CHECKING){
-        	Account newCustomer = new Senior(customerFirstName, customerLastName, customerAge, isVIP, typeAccount);
-          accounts[size] = newCustomer;
-          size ++;
-          int acctype = 1;
-          accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
-          accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
-        }
-      	else{
-        	Account newCustomer = new Senior(customerFirstName, customerLastName, customerAge, isVIP, typeAccount);
-          accounts[size] = newCustomer;
-          size++;
-          int acctype = 0;
-          accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
-          accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
-        }
-      }
-      else if(customerType == ADULT){
-      if(typeAccount==CHECKING){
-      	Account newCustomer = new Adult(customerFirstName, customerLastName, customerAge, typeAccount);
-        accounts[size] = newCustomer;
-        size++;
-        int acctype = 1;
-        accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
-        accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
-      }
-      else{
-      	Account newCustomer = new Adult(customerFirstName, customerLastName, customerAge, typeAccount);
-        accounts[size] = newCustomer;
-        size++;
-        int acctype = 0;
-        accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
-        accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
-      }
-    }
-    else if(customerType == STUDENT){
-    if(typeAccount==CHECKING){
-      Account newCustomer = new Student(customerFirstName, customerLastName, customerAge, typeAccount);
+    if(typeAccount == 1){
+      CheckingAccount newCustomer = new CheckingAccount(customerFirstName, customerLastName, customerAge, customerType, isVIP);
       accounts[size] = newCustomer;
-      size++;
+      this.hello = newCustomer;
+      size ++;
       int acctype = 1;
-      accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
+      accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
       accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
     }
-    else{
-      Account newCustomer = new Student(customerFirstName, customerLastName, customerAge, typeAccount);
+    else if(typeAccount == 0){
+      SavingsAccount newCustomer = new SavingsAccount(customerFirstName, customerLastName, customerAge, customerType, isVIP);
       accounts[size] = newCustomer;
-      size++;
+      this.hello = newCustomer;
+      size ++;
       int acctype = 0;
-      accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
+      accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
       accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
     }
-  }
+
       return accounts[size].getAccountNumber();
     }
 
@@ -113,15 +78,15 @@ public abstract class Bank extends Account {
     public double makeDeposit(String accountNumber, double amount){
     	if(this.find(accountNumber) == 1){
   		if(accountFinder.get(accountNumber).getType() == CHECKING){
-      	CheckingAccount tempcheck = accountFinder.get(accountNumber);
-      	tempcheck.deposit(amount);
+        CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
+        tempcheck.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return accountFinder.get(accountNumber).getBalance();
 
 
       }
       else if(accountFinder.get(accountNumber).getType() == SAVINGS){
-      	SavingsAccount tempsave = accountFinder.get(accountNumber);
+      	SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return accountFinder.get(accountNumber).getBalance();
@@ -130,6 +95,7 @@ public abstract class Bank extends Account {
       else{
       	System.out.println("This account does not exist in the system. Please enter a valid account number.");
       }
+      return 0;
     }
 
     /***********************************************************************
@@ -143,7 +109,7 @@ public abstract class Bank extends Account {
     public double makeWithdrawal(String accountNumber, double amount){
       if(this.find(accountNumber) == 1){
      if(accountFinder.get(accountNumber).getType() == CHECKING){
-       CheckingAccount tempcheck = accountFinder.get(accountNumber);
+       CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
        tempcheck.withdraw(amount);
        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
        return accountFinder.get(accountNumber).getBalance();
@@ -151,7 +117,7 @@ public abstract class Bank extends Account {
 
       }
       else if(accountFinder.get(accountNumber).getType() == SAVINGS){
-       SavingsAccount tempsave = accountFinder.get(accountNumber);
+       SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.withdraw(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return accountFinder.get(accountNumber).getBalance();
@@ -160,6 +126,7 @@ public abstract class Bank extends Account {
       else{
        System.out.println("This account does not exist in the system. Please enter a valid account number.");
       }
+      return 0;
     }
 
     /***********************************************************************

@@ -1,4 +1,4 @@
-public class Adult extends Customer{
+public class Adult extends Account{
 	private static final double SAVINGS_INTEREST = 0.03;
 	private static final double CHECK_INTEREST = 0.01;
 	private static final double CHECK_CHARGE = 0.03;

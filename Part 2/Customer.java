@@ -1,4 +1,4 @@
-public abstract class Customer extends Account{
+public abstract class Customer{
   private String firstName;
   private String lastName;
   private int age;
@@ -69,9 +69,4 @@ public abstract class Customer extends Account{
       return false;
     }
   }
-  public abstract double getSavingsInterest();
-  public abstract double getCheckInterest();
-  public abstract double getCheckCharge();
-  public abstract double getOverPenalty();
-  public abstract int getType();
 }

@@ -1,5 +1,5 @@
-public abstract class Account{
-	private static int lastAccountNumber = 9999;
+public class Account extends Customer{
+	private int lastAccountNumber = 9999;
 	private int accountNumber;
   private Customer customer;
 	private double balance;
@@ -7,6 +7,7 @@ public abstract class Account{
 	private Transaction newTransArray;
   private static final int INITSIZE = 25;
 	private int index = 0;
+	private int acctype;
 
 	public Account(){
 		this.accountNumber = lastAccountNumber;
@@ -15,14 +16,14 @@ public abstract class Account{
 		this.index = 0;
 		String[] transactions = new String[INITSIZE];
 	}
-
-	public Account(Customer person, double bal){
-    this.balance = bal;
-    this.customer = person;
+	public Account(String fName, String lName, int inage, int accountType){
+		super(fName,lName,inage);
 		this.accountNumber = lastAccountNumber;
 		lastAccountNumber ++;
+		this.balance = 0;
 		this.index = 0;
-    String[] transactions = new String[INITSIZE];
+		this.acctype = accountType;
+		String[] transactions = new String[INITSIZE];
 	}
 
 	public void reallocate(){
@@ -70,9 +71,7 @@ public abstract class Account{
 	public int getAccountNumber(){
 		return this.accountNumber;
 	}
-	public abstract double getSavingsInterest();
-  public abstract double getCheckInterest();
-  public abstract double getCheckCharge();
-  public abstract double getOverPenalty();
-  public abstract int getType();
+	public int getType(){
+		return this.acctype;
+	}
 }

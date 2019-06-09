@@ -1,11 +1,66 @@
-public abstract class SavingsAccount extends Customer{
-  	public boolean VIP;
+public class SavingsAccount extends Account{
+  public boolean VIP;
+	private double savingsInt;
+	private double checkingsInt;
+	private double checkingsCharge;
+	private double overPenalty;
 	private int accountType;
-  public SavingsAccount(String fName, String lName, int inage, int typeacc, boolean VIP){
-	  super(fName,lName,inage);
-	  this.accountType = typeacc;
-	  this.VIP = VIP;
-  }
+  public SavingsAccount(String fName, String lName, int inage, int customerType, boolean VIP){
+    super(fName,lName,inage,customerType);
+    if (customerType == 0){
+     if(VIP == false){
+       new Senior(fName,lName,inage,false,1);
+       final double SAVINGS_INTEREST = 0.08;
+       final double CHECK_INTEREST = 0.04;
+       final double CHECK_CHARGE = 0.01;
+       final double OVERDRAFT_PENALTY = 10;
+       this.savingsInt = SAVINGS_INTEREST;
+       this.checkingsInt = CHECK_INTEREST;
+       this.checkingsCharge = CHECK_CHARGE;
+       this.overPenalty = OVERDRAFT_PENALTY;
+       this.accountType = 0;
+   }
+     else if(VIP == true){
+       new Senior(fName,lName,inage,true,1);
+       final double SAVINGS_INTEREST = 0.1;
+       final double CHECK_INTEREST = 0.04;
+       final double CHECK_CHARGE = 0;
+       final double OVERDRAFT_PENALTY = 5;
+       this.savingsInt = SAVINGS_INTEREST;
+       this.checkingsInt = CHECK_INTEREST;
+       this.checkingsCharge = CHECK_CHARGE;
+       this.overPenalty = OVERDRAFT_PENALTY;
+       this.accountType = 0;
+   }
+ }
+   else if(customerType == 1){
+     new Adult(fName,lName,inage,1);
+     final double SAVINGS_INTEREST = 0.03;
+     final double CHECK_INTEREST = 0.01;
+     final double CHECK_CHARGE = 0.03;
+     final double OVERDRAFT_PENALTY = 25;
+     this.savingsInt = SAVINGS_INTEREST;
+     this.checkingsInt = CHECK_INTEREST;
+     this.checkingsCharge = CHECK_CHARGE;
+     this.overPenalty = OVERDRAFT_PENALTY;
+     this.accountType = 0;
+
+
+   }
+   else if(customerType == 2){
+     new Student(fName, lName,inage,1);
+     final double SAVINGS_INTEREST = 0.07;
+     final double CHECK_INTEREST = 0.03;
+     final double CHECK_CHARGE = 0.02;
+     final double OVERDRAFT_PENALTY = 0;
+     this.savingsInt = SAVINGS_INTEREST;
+     this.checkingsInt = CHECK_INTEREST;
+     this.checkingsCharge = CHECK_CHARGE;
+     this.overPenalty = OVERDRAFT_PENALTY;
+     this.accountType = 0;
+
+   }
+ }
   public void deposit(double amount){
     if(this.getIndex() == this.getTransactions().length){
       this.reallocate();
@@ -44,7 +99,7 @@ public abstract class SavingsAccount extends Customer{
           System.out.println("This transaction could not be processed as you have reached your overdraft limit. Consider making a payment.");
         }
       }
-      else if(this.getCustomer() instanceof Senior && this.getOverPenalty() == 10){
+      else if(this.getCustomer() instanceof Senior && this.overPenalty == 10){
         if((this.getBalance() - amount) >= -500){
           double currentBal = this.getBalance() - amount;
           this.setBalance(currentBal);
@@ -84,7 +139,7 @@ public abstract class SavingsAccount extends Customer{
     if(this.getIndex() == this.getTransactions().length){
       this.reallocate();
     }
-    double interestAccrued = this.getBalance() * (this.getSavingsInterest());
+    double interestAccrued = this.getBalance() * (this.savingsInt);
     double newbal = this.getBalance() + interestAccrued;
     this.setBalance(newbal);
     Transaction newTrans = new Transaction((byte)2,interestAccrued,0,"Interest Accrued");
@@ -92,9 +147,4 @@ public abstract class SavingsAccount extends Customer{
     this.addTransaction(transInput);
     this.setIndex(this.getIndex()+1);
   }
-  public abstract double getSavingsInterest();
-  public abstract double getCheckInterest();
-  public abstract double getCheckCharge();
-  public abstract double getOverPenalty();
-  public abstract int getType();
 }
