@@ -3,7 +3,7 @@
  *
  * Created on July 21, 2004, 1:23 AM
  */
-
+import java.util.HashMap;
 public abstract class Bank extends Account {
     private Account[] accounts;
     private int size = 0;
@@ -154,7 +154,7 @@ public abstract class Bank extends Account {
      */
     private int find(int accountNumber){
        for(int i=0;i<this.size;i++){
-          if(this.getAccounts(i).getAccountNumber() == accountNumber){
+          if(this.getAccounts()[i].getAccountNumber() == accountNumber){
              return 1;
           }
        }
@@ -167,15 +167,12 @@ public abstract class Bank extends Account {
     /** You need to create private method : Allocate to allocate a new array to hold the transactions. */
     private void Allocate(){
     	if(size == accounts.length){
-      	Account newAccounts = new Account[size*2];
+      	Account[] newAccounts = new Account[size*2];
         for(int i=0;i < size;i++){
         	newAccounts[i] = accounts[i];
         }
         accounts = newAccounts;
       }
-    }
-    public Account getAccounts(int i) {
-    	return this.accounts[i];
     }
     public Account[] getAccounts(){
     	return this.accounts;
