@@ -47,7 +47,7 @@ public class Senior extends Customer{
 	public boolean getVip(){
 		return this.VIP;
 	}
-	public boolean setVIP(boolean vipStatus){
+	public void setVIP(boolean vipStatus){
 		this.VIP = vipStatus;
 	}
 	public int getType(){

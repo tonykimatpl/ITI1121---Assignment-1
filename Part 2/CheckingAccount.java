@@ -1,11 +1,11 @@
-public abstract class CheckingAccount extends Account{
-	private int accountType;
+public abstract class CheckingAccount extends Customer{
 	public boolean VIP;
-	public CheckingAccount(String fName, String lName,int inage,boolean VIP,int typeacc){
-		super(fName, lName, inage);
-		this.accountType = typeacc;
-		this.VIP = VIP;
-	}
+	private int accountType;
+    public CheckingAccount(String fName, String lName, int inage, int typeacc, boolean VIP){
+	  super(fName,lName,inage);
+	  this.accountType = typeacc;
+	  this.VIP = VIP;
+    }
 	public void deposit(double amount){
 	byte type;
     if(this.getIndex() == this.getTransactions().length){
