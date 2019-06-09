@@ -1,5 +1,3 @@
-Bank.java
-
 /*
  * Bank.java
  *
