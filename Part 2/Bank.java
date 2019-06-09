@@ -1,5 +1,3 @@
-Bank.java
-
 /*
  * Bank.java
  *
@@ -90,7 +88,7 @@ public abstract class Bank extends Account {
     public double makeDeposit(int accountNumber, double amount){
     	if(this.find(accountNumber) == 1){
   		if(typeAccount == CHECKING){
-      	CheckingAccount tempcheck = <CheckingAccount> accountFinder.get(accountNumber);
+      	CheckingAccount tempcheck = accountFinder.get(accountNumber);
       	tempcheck.deposit(amount);
         Integer oldBalance = accountBalances.put(accountNumber, accountFinder.get(accountNumber).getBalance());
         return accountFinder.get(accountNumber).getBalance();
@@ -98,7 +96,7 @@ public abstract class Bank extends Account {
 
       }
       else if(typeAccount == SAVINGS){
-      	SavingsAccount tempsave = <SavingsAccount> accountFinder.get(accountNumber);
+      	SavingsAccount tempsave = accountFinder.get(accountNumber);
         tempsave.deposit(amount);
         Integer oldBalance = accountBalances.put(accountNumber, accountFinder.get(accountNumber).getBalance());
         return accountFinder.get(accountNumber).getBalance();
@@ -120,7 +118,7 @@ public abstract class Bank extends Account {
     public double makeWithdrawal(int accountNumber, double amount){
        if(this.find(accountNumber) == 1){
   		if(typeAccount == CHECKING){
-      	CheckingAccount tempcheck = <CheckingAccount> accountFinder.get(accountNumber);
+      	CheckingAccount tempcheck = accountFinder.get(accountNumber);
       	tempcheck.withdraw(amount);
         Integer oldBalance = accountBalances.put(accountNumber, accountFinder.get(accountNumber).getBalance());
         return accountFinder.get(accountNumber).getBalance();
@@ -128,7 +126,7 @@ public abstract class Bank extends Account {
 
       }
       else if(typeAccount == SAVINGS){
-      	SavingsAccount tempsave = <SavingsAccount> accountFinder.get(accountNumber);
+      	SavingsAccount tempsave = accountFinder.get(accountNumber);
         tempsave.withdraw(amount);
         Integer oldBalance = accountBalances.put(accountNumber, accountFinder.get(accountNumber).getBalance());
         return accountFinder.get(accountNumber).getBalance();
