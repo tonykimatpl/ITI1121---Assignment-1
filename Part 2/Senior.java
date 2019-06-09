@@ -4,8 +4,9 @@ public class Senior extends Customer{
 	private double checkingsCharge;
 	private double overPenalty;
 	public boolean VIP;
+	private int accountType;
 
-	public Senior(String fName, String lName,int inage,boolean VIP){
+	public Senior(String fName, String lName,int inage,boolean VIP,int typeacc){
 		super(fName,lName,inage);
 		if(VIP == false){
 			final double SAVINGS_INTEREST = 0.08;
@@ -16,6 +17,7 @@ public class Senior extends Customer{
 			this.checkingsInt = CHECK_INTEREST;
 			this.checkingsCharge = CHECK_CHARGE;
 			this.overPenalty = OVERDRAFT_PENALTY;
+			this.accountType = typeacc;
 		}
 		else{
 			final double SAVINGS_INTEREST = 0.1;
@@ -26,6 +28,7 @@ public class Senior extends Customer{
 			this.checkingsInt = CHECK_INTEREST;
 			this.checkingsCharge = CHECK_CHARGE;
 			this.overPenalty = OVERDRAFT_PENALTY;
+			this.accountType = typeacc;
 		}
 		this.VIP = VIP;
 	}
@@ -43,5 +46,8 @@ public class Senior extends Customer{
 	}
 	public boolean getVip(){
 		return this.VIP;
+	}
+	public int getType(){
+		return this.accountType;
 	}
 }

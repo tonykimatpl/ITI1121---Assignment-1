@@ -7,13 +7,15 @@ public class Student extends Customer{
 	private double checkingsInt;
 	private double checkingsCharge;
 	private double overPenalty;
-	
-	public Student(String fName, String lName,int inage){
+	private int accountType;
+
+	public Student(String fName, String lName,int inage, int typeacc){
 		super(fName, lName, inage);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
 		this.overPenalty = OVERDRAFT_PENALTY;
+		this.accountType = typeacc;
 	}
 	public double getSavingsInterest(){
 		return this.savingsInt;
@@ -26,5 +28,8 @@ public class Student extends Customer{
 	}
 	public double getOverPenalty(){
 		return this.overPenalty;
+	}
+	public int getType(){
+		return this.accountType;
 	}
 }

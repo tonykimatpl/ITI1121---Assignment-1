@@ -74,4 +74,5 @@ public abstract class Customer extends Account{
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
   public abstract double getOverPenalty();
+  public abstract int getType();
 }
