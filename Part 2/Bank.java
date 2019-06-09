@@ -50,32 +50,32 @@ public abstract class Bank extends Account {
         	Account newCustomer = new Senior(customerFirstName, customerLastName, customerAge, isVIP, typeAccount);
           accounts[size] = newCustomer;
           size ++;
-          accountBalances.put((String) newCustomer.getAccountNumber(), (String) 0);
-          accountFinder.put((String) newCustomer.getAccountNumber(), newCustomer);
+          accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
+          accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
         }
       	else{
         	Account newCustomer = new Senior(customerFirstName, customerLastName, customerAge, isVIP, typeAccount);
           accounts[size] = newCustomer;
           size++;
-          accountBalances.put((String)newCustomer.getAccountNumber(),(String)0);
-          accountFinder.put((String)newCustomer.getAccountNumber(), newCustomer);
+          accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
+          accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
         }
       }
       else if(customerType == ADULT){
       	Account newCustomer = new Adult(customerFirstName, customerLastName, customerAge, typeAccount);
         accounts[size] = newCustomer;
         size++;
-        accountBalances.put((String) newCustomer.getAccountNumber(),(String) 0);
-        accountFinder.put((String) newCustomer.getAccountNumber(), newCustomer);
+        accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
+        accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
       }
       else{
       	Account newCustomer = new Student(customerFirstName, customerLastName, customerAge, typeAccount);
         accounts[size] = newCustomer;
         size++;
-        accountBalances.put((String) newCustomer.getAccountNumber(), (String) 0);
-        accountFinder.put((String) newCustomer.getAccountNumber(), newCustomer);
+        accountBalances.put(Integer.toString(newCustomer.getAccountNumber()),Integer.toString(0));
+        accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
       }
-      return (String) newCustomer.getAccountNumber();
+      return accounts[size].getAccountNumber();
     }
 
     /***********************************************************************
@@ -166,7 +166,7 @@ public abstract class Bank extends Account {
 
 
     /** You need to create private method : Allocate to allocate a new array to hold the transactions. */
-    private void Allocate(){
+    private void allocate(){
     	if(size == accounts.length){
       	Account[] newAccounts = new Account[size*2];
         for(int i=0;i < size;i++){

@@ -165,7 +165,7 @@ public abstract class Bank extends Account {
 
 
     /** You need to create private method : Allocate to allocate a new array to hold the transactions. */
-    private void Allocate(){
+    private void allocate(){
     	if(size == accounts.length){
       	Account newAccounts = new Account[size*2];
         for(int i=0;i < size;i++){

@@ -15,7 +15,7 @@ public class Adult extends Customer{
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;
 		this.overPenalty = OVERDRAFT_PENALTY;
-		this.accountType = typeacc
+		this.accountType = typeacc;
 	}
 	public double getSavingsInterest(){
 		return this.savingsInt;
