@@ -145,8 +145,8 @@ public abstract class Bank extends Account {
      if(accountFinder.get(accountNumber).getType() == CHECKING){
        CheckingAccount tempcheck = accountFinder.get(accountNumber);
        tempcheck.withdraw(amount);
-        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
-        return accountFinder.get(accountNumber).getBalance();
+       accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
+       return accountFinder.get(accountNumber).getBalance();
 
 
       }
