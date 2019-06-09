@@ -69,7 +69,6 @@ public abstract class Customer extends Account{
       return false;
     }
   }
-
   public abstract double getSavingsInterest();
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();

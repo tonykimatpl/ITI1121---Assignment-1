@@ -67,6 +67,9 @@ public abstract class Account{
 	public void addTransaction(String newTranAr){
 		this.transactions[this.getIndex()] = newTranAr;
 	}
+	public int getAccountNumber(){
+		return this.accountNumber;
+	}
 	public abstract double getSavingsInterest();
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
