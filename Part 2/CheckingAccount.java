@@ -92,5 +92,5 @@ public abstract class CheckingAccount extends Account{
   public abstract double getCheckInterest();
   public abstract double getCheckCharge();
   public abstract double getOverPenalty();
-  public abstract int getType();
+	public abstract int getType();
 }
