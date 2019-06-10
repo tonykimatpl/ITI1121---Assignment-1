@@ -5,7 +5,7 @@
  */
 import java.util.HashMap;
 import java.util.Map;
-public abstract class Bank{
+public class Bank{
     private Account[] accounts;
     private int size = 0;
     private int capacity;
@@ -53,6 +53,7 @@ public abstract class Bank{
       int acctype = 1;
       accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
       accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
+      return newCustomer.getAccountNumber();
     }
     else if(typeAccount == 0){
       SavingsAccount newCustomer = new SavingsAccount(customerFirstName, customerLastName, customerAge, customerType, isVIP);
@@ -62,9 +63,10 @@ public abstract class Bank{
       int acctype = 0;
       accountBalances.put(Integer.toString(newCustomer.getAccountNumber()), Integer.toString(0));
       accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
+      return newCustomer.getAccountNumber();
     }
 
-      return accounts[size].getAccountNumber();
+      return 0;
     }
 
     /***********************************************************************
@@ -129,6 +131,28 @@ public abstract class Bank{
       return 0;
     }
 
+    public double addInterest(String accountNumber){
+      if(this.find(accountNumber) == 1){
+  		if(accountFinder.get(accountNumber).getType() == CHECKING){
+        CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
+        tempcheck.addInterest();
+        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
+        return Double.parseDouble(accountBalances.get(accountNumber));
+
+
+      }
+      else if(accountFinder.get(accountNumber).getType() == SAVINGS){
+      	SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
+        tempsave.addInterest();
+        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
+        return Double.parseDouble(accountBalances.get(accountNumber));
+      }
+      }
+      else{
+      	System.out.println("This account does not exist in the system. Please enter a valid account number.");
+      }
+      return 0;
+    }
     /***********************************************************************
      * Returns account information as a string so it can be displayed
      * @param accountNumber String Account's number
@@ -153,7 +177,6 @@ public abstract class Bank{
 
  /***********************************************************************
 
-
     /** You need to create private method : Allocate to allocate a new array to hold the transactions. */
     private void allocate(){
     	if(size == accounts.length){
@@ -167,10 +190,4 @@ public abstract class Bank{
     public Account[] getAccounts(){
     	return this.accounts;
     }
-
-    public abstract double getSavingsInterest();
-  	public abstract double getCheckInterest();
-  	public abstract double getCheckCharge();
-  	public abstract double getOverPenalty();
-    public abstract int getType();
 }
