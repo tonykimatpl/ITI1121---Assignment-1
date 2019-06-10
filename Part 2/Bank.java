@@ -81,7 +81,7 @@ public abstract class Bank{
         CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
         tempcheck.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
-        return accountFinder.get(accountNumber).getBalance();
+        return Double.parseDouble(accountBalances.get(accountNumber));
 
 
       }
@@ -89,7 +89,7 @@ public abstract class Bank{
       	SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
-        return accountFinder.get(accountNumber).getBalance();
+        return Double.parseDouble(accountBalances.get(accountNumber));
       }
       }
       else{
@@ -112,7 +112,7 @@ public abstract class Bank{
        CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
        tempcheck.withdraw(amount);
        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
-       return accountFinder.get(accountNumber).getBalance();
+       return Double.parseDouble(accountBalances.get(accountNumber));
 
 
       }
@@ -120,7 +120,7 @@ public abstract class Bank{
        SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.withdraw(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
-        return accountFinder.get(accountNumber).getBalance();
+        return Double.parseDouble(accountBalances.get(accountNumber));
       }
       }
       else{
