@@ -5,8 +5,14 @@
 *
 
 */
-
-import javax.swing.*;
+ /*BankGUI.java
+Tony Kim, Noël Khalaf
+300087407, 300079144
+ITI1121
+*/
+/*Class BankGUI implements the program in a display format for ease of use*/
+import java.util.HashMap;
+import javax.swing.*; 
 
 /**************************************************************
 
@@ -18,7 +24,7 @@ import javax.swing.*;
 
 */
 
-public class BankGUI{
+public class BankGUI {
 
     /** A reference to the Bank object to be processed.
 
@@ -33,7 +39,7 @@ public class BankGUI{
     commands.
     pre: The bank exists and has accounts.
     post: Accounts are updated based on user commands.
-    @param Bank A reference to the Bank
+    @param bank A reference to the Bank
     to be processed.
     */
 
@@ -42,10 +48,10 @@ public class BankGUI{
         String[] commands = {"Add Account",
         					"Deposit",
         					"Withdrawal",
-        					"Check Account",
+        					"Check Account", 
         					"Add Interest",
         					"Exit"};
-        theBank = bank;
+        theBank = bank;       
         int choice;
         do {
             choice = JOptionPane.showOptionDialog(
@@ -67,19 +73,16 @@ public class BankGUI{
             }
         } while (choice < commands.length - 1);
         System.exit(0);
-    }
-
+    }   
+   
     /** Method to add an account.
     pre: The bank exists and has accounts and customers.
     post: A new account is created
     */
     private void doAddAccount() {
         // Request the name
-        String customerFName = JOptionPane.showInputDialog("Enter Customer's First Name");
-        if (customerFName == null)
-            return; // Dialog was cancelled.
-        String customerLName = JOptionPane.showInputDialog("Enter Customer's Last Name");
-        if (customerLName == null)
+        String customerName = JOptionPane.showInputDialog("Enter Customer Name");
+        if (customerName == null) 
             return; // Dialog was cancelled.
          String age = JOptionPane.showInputDialog("Enter Customer Age");
         if (age == null) {
@@ -87,7 +90,7 @@ public class BankGUI{
         }
         int customerAge = Integer.parseInt(age);
              //Request type of customer
-        String[] custType = {"Senior",  "Adult", "Student", "Cancel"};
+        String[] custType = {"Senior",  "Adult", "Student", "Cancel"}; 
         int choice;
         boolean VIP=false;
         choice = JOptionPane.showOptionDialog(
@@ -98,13 +101,13 @@ public class BankGUI{
         		JOptionPane.QUESTION_MESSAGE, // Message type
         		null, // Icon
         		custType, // List of commands
-        		custType[custType.length - 1]); // Default choice
+        		custType[custType.length - 1]); // Default choice 
         if (choice == custType.length - 1)
             return; //Dialog was cancelled.
         int customerType = choice;
         //what type of senior?
         if(choice==0){
-        	String[] seniorType = {"Senior",  "VIPsenior"};
+        	String[] seniorType = {"Senior",  "VIPsenior"}; 
             choice = JOptionPane.showOptionDialog(
             		null, // No parent
             		"Select customer type", // Prompt message
@@ -113,7 +116,7 @@ public class BankGUI{
             		JOptionPane.QUESTION_MESSAGE, // Message type
             		null, // Icon
             		seniorType, // List of commands
-            		seniorType[0]); // Default choice
+            		seniorType[0]); // Default choice 
                      VIP = (choice==1);
            }
         //Request type of account
@@ -126,16 +129,19 @@ public class BankGUI{
         		JOptionPane.QUESTION_MESSAGE, // Message type
         		null, // Icon
         		commands, // List of commands
-        		commands[commands.length - 1]); // Default choice
+        		commands[commands.length - 1]); // Default choice 
         if (choice == commands.length - 1){
             return; //Dialog was cancelled.
         }
-        int theNumber = theBank.addAccount(customerFName, customerLName, customerAge, customerType, choice, VIP);
+		String customerFirst, customerLast;
+		int cAge, cType, typeAcc;
+		boolean ISvip;
+        int theNumber = theBank.addAccount(customerFirst, customerLast, cAge, cType, typeAcc, ISvip); 
         String message = null;
-        message = "Account " + theNumber + " created for " +customerFName+ " "+customerLName;
+        message = "Account " + theNumber + " created for " +customerName;
         // Display confirmation message.
         JOptionPane.showMessageDialog(null, message);
-        }
+        } 
     /** Method to deposit.
     pre: The bank exists and has accounts.
     post: Balance in accounts increases.
@@ -146,16 +152,16 @@ public class BankGUI{
                                "Enter Account Number");
         if (accountNumber == null) {
             return; // Dialog was cancelled.
-        }
+        } 
         String theAmount = JOptionPane.showInputDialog("Enter Amount");
         if (theAmount == null) {
             return; // Dialog was cancelled.
         }
         double amount = Double.parseDouble(theAmount);
         // Look up the name.
-        String theBalance = Double.toString(theBank.makeDeposit(accountNumber, amount));
+        double theBalance = theBank.makeDeposit(accountNumber, amount);
         String message = null;
-        if (theBalance != null) { // Name was found.
+        if (theBalance != 0) { // Name was found.
             message = "Account " + accountNumber + " new balance $" +
                       theBalance;
         } else { // Name was not found.
@@ -163,7 +169,7 @@ public class BankGUI{
         }
         // Display the result.
         JOptionPane.showMessageDialog(null, message);
-        }
+        } 
     /** Method to withdrawal.
 
     pre: The bank exists and has accounts.
@@ -184,7 +190,7 @@ public class BankGUI{
 
             return; // Dialog was cancelled.
 
-        }
+        } 
 
         String theAmount = JOptionPane.showInputDialog("Enter Amount");
 
@@ -194,19 +200,19 @@ public class BankGUI{
 
         }
 
-
+       
 
         double amount = Double.parseDouble(theAmount);
 
-
+       
 
         // Look up the name.
 
-        String theBalance = Double.toString(theBank.makeWithdrawal(accountNumber, amount));
+        double theBalance = theBank.makeWithdrawal(accountNumber, amount);
 
         String message = null;
 
-        if (theBalance != null) { // Name was found.
+        if (theBalance != 0) { // Name was found.
 
             message = "Account " + accountNumber + " new balance $" +
 
@@ -224,13 +230,13 @@ public class BankGUI{
 
         }
 
-
+   
 
     /** Method to deposit.
 
     pre: The bank exists and has accounts.
 
-
+   
 
     */
     private void doCheckAccount() {
@@ -245,7 +251,7 @@ public class BankGUI{
 
             return; // Dialog was cancelled.
 
-        }
+        } 
 
         // Look up the number.
         //the methos getAccount returns a sring with the account information
@@ -269,7 +275,7 @@ public class BankGUI{
         JOptionPane.showMessageDialog(null, message);
 
         }
-
+    
        private void doAddInterest() {
 
         // Request the account number.
@@ -282,11 +288,10 @@ public class BankGUI{
 
             return; // Dialog was cancelled.
 
-        }
-
-       String theBalance = Double.toString(theBank.addInterest(accountNumber));
+        } 
+       double theBalance = theBank.addInterest(accountNumber);
         String message = null;
-        if (theBalance != null) { // Name was found.
+        if (theBalance != 0) { // Name was found.
 
             message = "Account " + accountNumber + " new balance $" +
 
@@ -302,8 +307,9 @@ public class BankGUI{
 
         JOptionPane.showMessageDialog(null, message);
 
-        }
-    public static void main(String[] args){
-    }
+        } 
 
    }
+
+
+

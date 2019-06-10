@@ -3,6 +3,12 @@
  *
  * Created on July 21, 2004, 1:23 AM
  */
+ /*Bank.java
+Tony Kim, Noël Khalaf
+300087407, 300079144
+ITI1121
+*/
+/*Class Bank has a constructor and methods that modify the instance's variables*/
 import java.util.HashMap;
 import java.util.Map;
 public class Bank{
@@ -42,10 +48,10 @@ public class Bank{
      * @return String New account number
      */
     public int addAccount(String customerFirstName, String customerLastName, int customerAge, int customerType, int typeAccount, boolean isVIP){
-    if(size == (capacity - 1)){
-    	this.allocate();
+    if(size == (capacity - 1)){			//Checks for space to add a new Account to the array of accounts
+    	this.allocate();				//Doubles array size if not
     }
-    if(typeAccount == 1){
+    if(typeAccount == 1){ 				//Checks to add a Checking Account
       CheckingAccount newCustomer = new CheckingAccount(customerFirstName, customerLastName, customerAge, customerType, isVIP);
       accounts[size] = newCustomer;
       this.hello = newCustomer;
@@ -55,7 +61,7 @@ public class Bank{
       accountFinder.put(Integer.toString(newCustomer.getAccountNumber()), newCustomer);
       return newCustomer.getAccountNumber();
     }
-    else if(typeAccount == 0){
+    else if(typeAccount == 0){			//Checks to add a Savings Account
       SavingsAccount newCustomer = new SavingsAccount(customerFirstName, customerLastName, customerAge, customerType, isVIP);
       accounts[size] = newCustomer;
       this.hello = newCustomer;
@@ -78,8 +84,8 @@ public class Bank{
      * @return double New balance
      */
     public double makeDeposit(String accountNumber, double amount){
-    	if(this.find(accountNumber) == 1){
-  		if(accountFinder.get(accountNumber).getType() == CHECKING){
+    	if(this.find(accountNumber) == 1){									//Checks if Account exists
+  		if(accountFinder.get(accountNumber).getType() == CHECKING){			//Checks if Account is of type Checking
         CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
         tempcheck.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
@@ -87,14 +93,14 @@ public class Bank{
 
 
       }
-      else if(accountFinder.get(accountNumber).getType() == SAVINGS){
+      else if(accountFinder.get(accountNumber).getType() == SAVINGS){		//Checks if Account is of type Savings
       	SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.deposit(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return Double.parseDouble(accountBalances.get(accountNumber));
       }
       }
-      else{
+      else{																//Account does not exists
       	System.out.println("This account does not exist in the system. Please enter a valid account number.");
       }
       return 0;
@@ -109,8 +115,8 @@ public class Bank{
      * @return double New balance
      */
     public double makeWithdrawal(String accountNumber, double amount){
-      if(this.find(accountNumber) == 1){
-     if(accountFinder.get(accountNumber).getType() == CHECKING){
+      if(this.find(accountNumber) == 1){								//Checks if Account exists
+     if(accountFinder.get(accountNumber).getType() == CHECKING){		//Checks if Account is of type Checking
        CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
        tempcheck.withdraw(amount);
        accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
@@ -118,22 +124,22 @@ public class Bank{
 
 
       }
-      else if(accountFinder.get(accountNumber).getType() == SAVINGS){
+      else if(accountFinder.get(accountNumber).getType() == SAVINGS){	//Checks if Account is of type Savings
        SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.withdraw(amount);
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return Double.parseDouble(accountBalances.get(accountNumber));
       }
       }
-      else{
+      else{																//Account does not exists
        System.out.println("This account does not exist in the system. Please enter a valid account number.");
       }
       return 0;
     }
 
     public double addInterest(String accountNumber){
-      if(this.find(accountNumber) == 1){
-  		if(accountFinder.get(accountNumber).getType() == CHECKING){
+      if(this.find(accountNumber) == 1){									//Checks if Account exists
+  		if(accountFinder.get(accountNumber).getType() == CHECKING){			//Checks if Account is of type Checking
         CheckingAccount tempcheck = (CheckingAccount) accountFinder.get(accountNumber);
         tempcheck.addInterest();
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
@@ -141,14 +147,14 @@ public class Bank{
 
 
       }
-      else if(accountFinder.get(accountNumber).getType() == SAVINGS){
+      else if(accountFinder.get(accountNumber).getType() == SAVINGS){		//Checks if Account is of type Savings
       	SavingsAccount tempsave = (SavingsAccount) accountFinder.get(accountNumber);
         tempsave.addInterest();
         accountBalances.put(accountNumber, String.valueOf(accountFinder.get(accountNumber).getBalance()));
         return Double.parseDouble(accountBalances.get(accountNumber));
       }
       }
-      else{
+      else{															//Account does not exist
       	System.out.println("This account does not exist in the system. Please enter a valid account number.");
       }
       return 0;
@@ -180,13 +186,14 @@ public class Bank{
     /** You need to create private method : Allocate to allocate a new array to hold the transactions. */
     private void allocate(){
     	if(size == accounts.length){
-      	Account[] newAccounts = new Account[size*2];
+      	Account[] newAccounts = new Account[size*2];		//Creates temporary array twice the size of the accounts array
         for(int i=0;i < size;i++){
-        	newAccounts[i] = accounts[i];
+        	newAccounts[i] = accounts[i];					//Transfers all accounts to new array
         }
-        accounts = newAccounts;
+        accounts = newAccounts;								
       }
     }
+	//Accessor method for accounts
     public Account[] getAccounts(){
     	return this.accounts;
     }

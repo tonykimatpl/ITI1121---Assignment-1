@@ -7,7 +7,12 @@
 * Created on July 21, 2004, 1:44 AM
 
 */ 
-
+/*BankApp.java
+Tony Kim, Noël Khalaf
+300087407, 300079144
+ITI1121
+*/
+/*Class BankApp has a constructor and a main method that executes the program*/
 public class BankApp {
 
     public Bank bank;
