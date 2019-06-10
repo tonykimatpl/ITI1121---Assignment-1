@@ -10,7 +10,7 @@ public class Adult extends Account{
 	private int accountType;
 
 	public Adult(String fName, String lName,int inage, int typeacc){
-		super(fName, lName, inage);
+		super(fName, lName, inage, typeacc);
 		this.savingsInt = SAVINGS_INTEREST;
 		this.checkingsInt = CHECK_INTEREST;
 		this.checkingsCharge = CHECK_CHARGE;

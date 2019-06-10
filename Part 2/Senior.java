@@ -7,7 +7,7 @@ public class Senior extends Account{
 	private int accountType;
 
 	public Senior(String fName, String lName,int inage,boolean VIP,int typeacc){
-		super(fName,lName,inage);
+		super(fName,lName,inage,typeacc);
 		if(VIP == false){
 			final double SAVINGS_INTEREST = 0.08;
 			final double CHECK_INTEREST = 0.04;
